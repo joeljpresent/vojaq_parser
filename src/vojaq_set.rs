@@ -1,7 +1,7 @@
 use crate::vojaq_trio::VojaqTrio;
 
 #[derive(Debug)]
-struct VojaqSet {
+pub struct VojaqSet {
     trios : Vec<VojaqTrio>
 }
 
@@ -9,6 +9,12 @@ impl VojaqSet {
     pub fn new() -> Self {
         VojaqSet {
             trios: vec![]
+        }
+    }
+
+    pub fn with_trios(trios: Vec<VojaqTrio>) -> Self {
+        VojaqSet {
+            trios: trios
         }
     }
 

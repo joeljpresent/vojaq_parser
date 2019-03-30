@@ -1,6 +1,7 @@
 #![allow(dead_code)]
 
 mod parser;
+mod vojaq_file;
 mod vojaq_line;
 mod vojaq_trio;
 mod vojaq_set;
