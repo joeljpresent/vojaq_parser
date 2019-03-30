@@ -1,7 +1,11 @@
 [package]
 name = "vojaq_parser"
+description = "Parser of the Vojaq file format"
 version = "0.1.0"
 authors = ["Joël J. Présent"]
 edition = "2018"
+repository = "https://github.com/joeljpresent/vojaq_parser"
+readme = "README.md"
+license = "MIT"
 
 [dependencies]
