@@ -1,0 +1,7 @@
+[package]
+name = "vojaq_parser"
+version = "0.1.0"
+authors = ["Joël J. Présent"]
+edition = "2018"
+
+[dependencies]
