@@ -17,15 +17,15 @@ impl VojaqTrio {
         }
     }
 
-    pub fn get_primo(&self) -> &String {
+    pub fn primo_ref(&self) -> &String {
         &self.primo
     }
 
-    pub fn get_secondo(&self) -> &String {
+    pub fn secondo_ref(&self) -> &String {
         &self.secondo
     }
 
-    pub fn get_terzo(&self) -> &String {
+    pub fn terzo_ref(&self) -> &String {
         &self.terzo
     }
 }

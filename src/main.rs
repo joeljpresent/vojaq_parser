@@ -7,15 +7,18 @@ mod vojaq_trio;
 mod vojaq_set;
 mod tests;
 
-use parser::*;
-use vojaq_line::*;
+use vojaq_file::read_file;
 
 fn main() {
     let args: Vec<_> = std::env::args().collect();
     if args.len() > 1 {
-        match parse_line(args[1].as_str()) {
-            VojaqLine::Trio(trio) => println!("Le trio vaut {:?}.", trio),
-            voj => println!("Voj : {:?}", voj)
+        match read_file(args[1].as_str()) {
+            Ok(set) => {
+                println!("{:?}", set);
+                println!("Prononciation de 1337 : {:?}", 
+                    set.trios_ref().get(3).unwrap().secondo_ref())
+            },
+            Err(err) => println!("{}", err)
         }
     }
 }
