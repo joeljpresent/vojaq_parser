@@ -1,13 +1,13 @@
 #![allow(dead_code)]
 
 mod parser;
-mod vojaq_file;
-mod vojaq_line;
-mod vojaq_trio;
-mod vojaq_set;
+mod file;
+mod line;
+mod trio;
+mod set;
 mod tests;
 
-use vojaq_file::read_file;
+use file::read_file;
 
 fn main() {
     let args: Vec<_> = std::env::args().collect();

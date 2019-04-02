@@ -1,4 +1,4 @@
-use crate::vojaq_line::VojaqLine;
+use crate::line::VojaqLine;
 use super::assert_line;
 
 #[test]

@@ -2,8 +2,8 @@ use std::fs::File;
 use std::io::{BufRead, BufReader};
 use std::path::Path;
 use crate::parser::parse_line;
-use crate::vojaq_trio::VojaqTrio;
-use crate::vojaq_set::VojaqSet;
+use crate::trio::VojaqTrio;
+use crate::set::VojaqSet;
 
 /// Extract the content of a Vojaq file into a VojaqSet.
 pub fn read_file<P>(filename: P) -> std::io::Result<VojaqSet>

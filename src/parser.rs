@@ -1,5 +1,5 @@
-use crate::vojaq_line::VojaqLine;
-use crate::vojaq_trio::VojaqTrio;
+use crate::line::VojaqLine;
+use crate::trio::VojaqTrio;
 use std::str::Chars;
 
 #[derive(Eq, PartialEq)]

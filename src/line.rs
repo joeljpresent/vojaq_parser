@@ -1,4 +1,4 @@
-use crate::vojaq_trio::VojaqTrio;
+use crate::trio::VojaqTrio;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum VojaqLine {
