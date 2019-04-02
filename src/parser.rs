@@ -10,11 +10,10 @@ enum ParsingStatus {
 }
 
 pub fn parse_line(line: &str) -> VojaqLine {
-    let l = line.trim();
-    if l.is_empty() {
+    let line = line.trim_start_matches(
+        |c:char| c == '\u{feff}' || c.is_whitespace());
+    if line.is_empty() || line.starts_with(r"\#") {
         VojaqLine::Empty
-    } else if l.starts_with(r"\#") {
-        VojaqLine::Comment
     } else {
         match parse_vojaq_trio(line) {
             Ok(trio) => VojaqLine::Trio(trio),
@@ -40,6 +39,13 @@ fn parse_testo(it: &mut Chars, state: ParsingStatus) -> Result<String, String> {
                 if let Some(ch) = it.next() {
                     match ch {
                         '{' | '}' | '\\' => testo.push(ch),
+                        '#' => {
+                            if state == ParsingStatus::Terzo {
+                                return Ok(testo.trim().to_owned());
+                            } else {
+                                return Err(r"Use of '\#' outside of terzo".to_owned());
+                            }
+                        }
                         _ => return Err("Invalid escape sequence".to_owned())
                     }
                 } else {

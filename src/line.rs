@@ -3,7 +3,6 @@ use crate::trio::VojaqTrio;
 #[derive(Debug, PartialEq, Eq)]
 pub enum VojaqLine {
     Trio(VojaqTrio),
-    Comment,
     Empty,
     Invalid(String)
 }

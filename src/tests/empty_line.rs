@@ -13,5 +13,5 @@ fn space() {
 
 #[test]
 fn lots_of_whitespace() {
-    assert_line(" \u{A0} \u{2001}\t\t\u{3000}\u{2003} \t \u{85}", VojaqLine::Empty);
+    assert_line(" \u{A0} \u{2001}\t\u{feff}\t\u{3000}\u{2003} \t \u{85}", VojaqLine::Empty);
 }

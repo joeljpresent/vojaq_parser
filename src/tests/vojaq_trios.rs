@@ -48,12 +48,30 @@ fn croisillon() {
 
 #[test]
 fn windows_path() {
-    assert_line(r#"C:\\User\\Documents {\{Windows\} path} Path to \{Documents\}"#,
-        line_trio(r"C:\User\Documents", r#"{Windows} path"#, r#"Path to {Documents}"#));
+    assert_line(r#"C:\\User\\Documents#file {\{Windows\} path} Path to \{Documents\}"#,
+        line_trio(r"C:\User\Documents#file", r#"{Windows} path"#, r#"Path to {Documents}"#));
 }
 
 #[test]
 fn escape_fiesta() {
     assert_line(r#"\\forall x \\in \{1,2,3\} {accolade : "\}"} \{pas fini"#,
         line_trio(r"\forall x \in {1,2,3}", r#"accolade : "}""#, r"{pas fini"));
+}
+
+#[test]
+fn with_bom() {
+    assert_line("\u{feff}BOM {Byte Order Mark} Marqueur d'ordre d'octets",
+        line_trio("BOM", "Byte Order Mark", "Marqueur d'ordre d'octets"))
+}
+
+#[test]
+fn with_comment() {
+    assert_line(r"いただきます {itadakimasu} Bon appétit \# Ce n'est pas un équivalent exact.",
+        line_trio("いただきます", "itadakimasu", "Bon appétit"))
+}
+
+#[test]
+fn double_backslash_pound() {
+    assert_line(r"Double \\# {backslash} pound (comment)",
+        line_trio(r"Double \#", "backslash", "pound (comment)"))
 }
