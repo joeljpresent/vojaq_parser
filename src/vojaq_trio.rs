@@ -1,6 +1,6 @@
-/**
- * Ensemble de trois phrases.
- */
+///
+/// Ensemble de trois phrases.
+///
 #[derive(Debug, PartialEq, Eq)]
 pub struct VojaqTrio {
     primo: String,

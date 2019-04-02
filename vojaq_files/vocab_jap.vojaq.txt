@@ -1,0 +1,230 @@
+﻿丁度 {choudo} correct, exactement
+お風呂 {o furo} bain
+お父さん {otousan} votre père
+お母さん {okaasan} votre mère
+両親 {ryoushin} mes parents
+不味い {mazui} mauvais (au goût)
+留学生 {ryuugakusei} étudiants étrangers
+忙しい {isogashii} occupé
+平日 {heijitsu} jour ouvré
+勉強 {benkyou} les études
+横 {yoko} (à) côté (de)
+棚 {tana} étagère
+本棚 {hondana} étagère à livres
+低い {hikui} bas, peu élevé, petit
+習う {narau} apprendre
+祖父母 {sofubo} mes grands-parents
+孫 {mago} mon petit-enfant
+飛行機 {hikouki} avion
+遅い {osoi} lent ; tard ; en retard
+嫌い {kirai} détesté
+秘密 {himitsu} secret
+着る {kiru} porter (chemise, etc.)
+履く {haku} porter (bas, chaussures...)
+被る {kaburu} porter (sur la tête)
+売る {uru} vendre
+昨夜／夕べ {yuube} hier soir
+暖かい {atatakai} plutôt chaud (météo)
+涼しい {suzushii} frais (météo)
+暑い {atsui} chaud (météo)
+寒い {samui} froid (météo)
+明るい {akarui} éclairé
+暗い {kurai} sombre
+昼間 {hiruma} journée
+夕方 {yuugata} soirée
+少ない {sukunai} peu
+醤油 {shouyu} sauce de soja
+弱い {yowai} faible
+全く {mattaku} entièrement
+感心 {kanshin} admirable
+昔 {mukashi} autrefois
+随分 {zuibun} extrêmement
+砂糖 {satou} sucre
+塩 {shio} sel (de table)
+曲がる {magaru} tourner
+降りる {oriru} descendre (de 🚇)
+通る {tooru} passer (par un endroit)
+広い {hiroi} large
+狭い {semai} étroit
+角 {kado} angle, coin
+荷物 {nimotsu} bagage
+重い {omoi} lourd
+軽い {karui} léger
+貰う {morau} recevoir
+大切 {taisetsu} important, de valeur
+去年 {kyonen} l'année dernière
+立派 {rippa} majestueux
+有名 {yuumei} célèbre
+若い {wakai} jeune
+大勢 {oozei} nombreux, beaucoup (de gens)
+家庭 {katei} foyer, famille
+新聞 {shinbun} journal
+閉める {shimeru} fermer
+点ける {tsukeru} allumer
+開ける {akeru} ouvrir
+洗濯 {sentaku} lessive, lavage du linge
+掃除 {souji} ménage, nettoyage 
+浴びる {abiru} s'asperger d'eau
+座る {suwaru} s'asseoir
+立つ {tatsu} se lever, être debout
+点ける {tsukeru} allumer
+携帯 {keitai} portable
+働く {hataraku} travailler
+勤める {tsutomeru} servir, travailler
+上る {noboru} monter, grimper
+海 {umi} mer
+池 {ike} étang, mare
+声 {koe} voix, son d'un animal
+賑やか {nigiyaka} animé, bruyant
+煩い {urusai} bruyant
+咲く {saku} fleurir
+花瓶 {kabin} vase (pour fleurs)
+静か {shizuka} calme, silencieux
+鳴く {naku} [animal] faire un cri
+飛ぶ {tobu} voler (dans les airs)
+差す {sasu} mettre, ouvrir, allumer...
+終わる {owaru} finir, se terminer
+宿題 {shukudai} les devoirs (scolaires)
+授業 {jugyou} cours, classe
+教科書 {kyoukasho} manuel scolaire
+易しい {yasashii} simple, facile
+難しい {muzukashii} difficile
+引く {hiku} (re)tirer, tracer, consulter...
+練習 {renshuu} entraînement
+覚える {oboeru} se souvenir, retenir
+教室 {kyoushitsu} salle de classe
+答え {kotae} réponse (à question)
+答える {kotaeru} répondre (à qSt°)
+質問 {shitsumon} question
+問題 {mondai} problème
+鉛筆 {enpitsu} crayon
+定規 {jougi} règle (pour mesurer)
+詰まらない {tsumaranai} ennuyeux
+困る {komaru} être dans l'embarras
+嫌 {iya} [n'est] pas aimé
+怖い {kowai} effrayant, apeurant
+暇 {hima} disponible, libre
+疲れる {tsukareru} se fatiguer, être fatigué
+橋 {hashi} pont
+村 {mura} village
+門 {mon} portail
+門 {kado} porte
+出掛ける {dekakeru} sortir [de chez soi]
+交番 {kouban} petit commissariat
+階段 {kaidan} escalier
+図書館 {toshokan} bibliothèque (lieu)
+盗む {nusumu} voler (dérober)
+お手洗い {otearai} les toilettes
+玄関 {genkan} entrée, vestibule 
+戸 {to} porte, portière
+廊下 {rouka} couloir
+止まる {tomaru} s'arrêter, rester, se percher
+運転手 {untenshu} conducteur, chauffeur
+開く {aku} [s']ouvrir, être ouvert
+閉まる {shimaru} [se] fermer, être fermé
+薄い {usui} mince, fin, peu épais
+細い {hosoi} fin, mince, menu
+丸い {marui} rond, circulaire
+厚い {atsui} épais ; chaleureux
+太い {futoi} gros, épais
+吸う {suu} aspirer, absorber, fumer 
+押す {osu} pousser, appuyer
+切る {kiru*} couper
+亡くす {nakusu} perdre [qn/qch], égarer
+切手 {kitte} timbre [postal]
+鍵 {kagi} clé 🔑
+貼る {haru} coller
+石鹸 {sekken} savon
+箱 {hako} boîte
+置く {oku} poser, placer
+葉書 {hagaki} carte postale
+封筒 {fuutou} enveloppe
+上着 {uwagi} veste
+洋服 {youfuku} vêtement (occidental)
+払う {harau} payer ; brosser
+飴 {ame} bonbon, sucre d'orge
+背広 {sebiro} costume, veston
+上手 {jouzu} adroit, doué, habile
+下手 {heta} maladroit, peu doué
+野球 {yakyuu} baseball
+話 {hanashi} histoire ; conversation
+頼む {tanomu} demander ; faire confiance
+作文 {sakubun} composition écrite
+文章 {bunshou} texte, phrase
+雑誌 {zasshi} magazine
+渡す {watasu} remettre [qch à qqn]
+返す {kaesu} rendre, restituer [qch à qqn]
+並ぶ {narabu} faire la queue
+借りる {kariru} emprunter
+風邪 {kaze} rhume
+風邪を引く {kaze wo hiku} attraper un rhume
+痛い {itai} douloureux
+頭 {atama} tête
+足 {ashi} pied ; jambe
+病気 {byouki} maladie
+背 {se} la taille [de qqn] ; le dos
+体 {karada} le corps [de qqn]
+薬 {kusuri} médicament ; drogue
+医者 {isha} médecin, docteur
+教える {oshieru} enseigner
+会社 {kaisha} entreprise, firme
+町 {machi} ville [petite ou moyenne]
+予約 {yoyaku} réservation
+準備 {junbi} préparatif
+趣味 {shumi} loisir, passe-temps
+気持ち {kimochi} sensation, sentiment
+警察 {keisatsu} la police
+海賊 {kaizoku} pirate
+十分 {juubun} suffisant, assez
+耳 {mimi} oreille
+顔 {kao} visage
+磨く {migaku} polir, brosser
+歯 {ha} dent
+肥る {futoru} être gros, devenir gros
+痩せる {yaseru} être mince, mincir
+運動 {undou} mouvement, exercice, sport
+韓国 {kankoku} Corée (du Sud)
+建物 {tatemono} immeuble, bâtiment
+段々 {dandan} peu à peu, au fur et à mesure
+走る {hashiru*} courir ; conduire
+体操 {taisou} gymnastique
+会場 {kaijou} salle, lieu de rassemblement
+種目 {shumoku} catégorie ; épreuve sportive
+水泳 {suiei} natation
+陸上 {rikujou} terrestre ; athlétisme
+選手 {senshu} champion, joueur, athlète
+踊る {odoru} danser
+最多 {saita} la plupart
+自然 {shizen} la nature
+表す {arawasu} exprimer, représenter, figurer
+鴨 {kamo} canard [en particulier sauvage]
+家鴨 {ahiru} canard domestique
+必要 {hitsuyou} nécessaire, nécessité
+米 {kome} riz
+炊く {taku} faire cuire [surtout du riz]
+支援 {shien} aide, soutien
+払う {harau} payer, brosser, éloigner
+伝える {tsutaeru} informer, transmettre
+触る {sawaru} toucher, tâter, palper
+黒 {kuro} noir 🖤
+緑 {midori} vert 💚
+紫 {murasaki} violet 💜
+黄色 {ki-iro} jaune 💛
+誰 {dare} qui ?
+なぜなら {nazenara} Parce que...
+だけど {dakedo} mais, cependant
+就いて {tsuite} au sujet de, concernant
+ながら {nagara} pendant que
+似る {niru} ressembler à, être similaire à 
+無し {nashi} sans
+脱ぐ {nugu} enlever
+食事 {shokuji} repas ; le fait de manger
+眠る {nemuru} dormir ; mourir
+外出 {gaishutsu} sortie [de chez soi]
+読書 {dokusho} lecture
+向かう {mukau} se diriger vers, faire face à
+対 {tai} contre, versus
+反対 {hantai} contraire, opposé, hostile
+以外 {igai} sauf, à l'exception de
+なさい {nasai} suffixe verbal impératif
+

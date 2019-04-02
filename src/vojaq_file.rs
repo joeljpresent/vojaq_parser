@@ -5,8 +5,8 @@ use crate::parser::parse_line;
 use crate::vojaq_trio::VojaqTrio;
 use crate::vojaq_set::VojaqSet;
 
-pub fn read_file<P>(filename: P)
-    -> std::io::Result<VojaqSet>
+/// Extract the content of a Vojaq file into a VojaqSet.
+pub fn read_file<P>(filename: P) -> std::io::Result<VojaqSet>
     where P: AsRef<Path>
 {
     let file = File::open(filename)?;
