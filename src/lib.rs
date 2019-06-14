@@ -26,6 +26,7 @@
 
 #![allow(dead_code)]
 
+mod error;
 mod field;
 mod file;
 mod line;
@@ -33,6 +34,7 @@ mod parser;
 mod set;
 mod tests;
 
+pub use error::{ParsingError, ParsingResult};
 pub use file::read_file;
 pub use parser::parse_vojaq;
 pub use field::VojaqField;

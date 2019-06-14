@@ -1,7 +1,4 @@
-use crate::parse_vojaq;
-use crate::VojaqField;
-use crate::VojaqLine;
-use crate::VojaqSet;
+use crate::{parse_vojaq, ParsingError, VojaqField, VojaqLine, VojaqSet};
 
 fn set_of_one_variant(variant: &str) -> VojaqSet {
     let mut field = VojaqField::new();
@@ -14,7 +11,8 @@ fn set_of_one_variant(variant: &str) -> VojaqSet {
 }
 
 fn assert_good_result(text: &str, variant: &str) {
-    assert_eq!(parse_vojaq(text), set_of_one_variant(variant));
+    let resulting_set: VojaqSet = parse_vojaq(text).unwrap();
+    assert_eq!(resulting_set, set_of_one_variant(variant));
 }
 
 #[test]
@@ -57,8 +55,8 @@ fn escaped_backslash_and_braces() {
     assert_good_result(r"x ∈ \\\{3, 7\\\}", r"x ∈ \{3, 7\}");
 }
 
-// #[test]
-// #[should_panic]
-// fn bad_escape() {
-//     parse_vojaq(r"Je n'eût\ypoint l'œil".into());
-// }
+#[test]
+fn bad_escape() {
+    let result = parse_vojaq(r"Je n'eût\ypoint l'œil".into());
+    assert_eq!(result, Err(ParsingError::BadEscapedSequence('y')));
+}

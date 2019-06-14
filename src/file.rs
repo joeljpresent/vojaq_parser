@@ -19,5 +19,5 @@ pub fn read_file<P>(path: P) -> Result<VojaqSet, Box<dyn std::error::Error>>
         &content[..]
     };
 
-    Ok(parse_vojaq(content))
+    Ok(parse_vojaq(content)?)
 }

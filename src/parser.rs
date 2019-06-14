@@ -1,4 +1,4 @@
-use crate::{VojaqField, VojaqLine, VojaqSet};
+use crate::{ParsingError, ParsingResult, VojaqField, VojaqLine, VojaqSet};
 use std::iter::Peekable;
 use std::str::Chars;
 
@@ -28,7 +28,7 @@ struct VojaqParser<'a> {
 }
 
 /// Parse a Vojaq text into a Vojaq set.
-pub fn parse_vojaq(text: &str) -> VojaqSet {
+pub fn parse_vojaq(text: &str) -> ParsingResult<VojaqSet> {
     VojaqParser::new(text).parse_text()
 }
 
@@ -39,88 +39,92 @@ impl<'a> VojaqParser<'a> {
         }
     }
 
-    pub fn parse_text(&mut self) -> VojaqSet {
+    pub fn parse_text(&mut self) -> ParsingResult<VojaqSet> {
         let mut set = VojaqSet::new();
         loop {
             match self.parse_line() {
-                LineParsingState::NewLine(line) => {
+                Ok(LineParsingState::NewLine(line)) => {
                     set.push(line);
                 },
-                LineParsingState::Done(line) => {
+                Ok(LineParsingState::Done(line)) => {
                     set.push(line);
-                    return set;
-                }
+                    return Ok(set);
+                },
+                Err(e) => return Err(e)
             }
         }
     }
 
-    fn parse_line(&mut self) -> LineParsingState {
+    fn parse_line(&mut self) -> ParsingResult<LineParsingState> {
         let mut line = VojaqLine::new();
             loop {
                 match self.parse_field() {
-                    FieldParsingState::NewField(field) => {
+                    Ok(FieldParsingState::NewField(field)) => {
                         line.push(field);
                     },
-                    FieldParsingState::StartNewLine(field) => {
+                    Ok(FieldParsingState::StartNewLine(field)) => {
                         line.push(field);
-                        return LineParsingState::NewLine(line);
+                        return Ok(LineParsingState::NewLine(line));
                     },
-                    FieldParsingState::Done(field) => {
+                    Ok(FieldParsingState::Done(field)) => {
                         line.push(field);
-                        return LineParsingState::Done(line);
-                    }
+                        return Ok(LineParsingState::Done(line));
+                    },
+                    Err(e) => return Err(e)
                 }
             }
     }
 
-    fn parse_field(&mut self) -> FieldParsingState {
+    fn parse_field(&mut self) -> ParsingResult<FieldParsingState> {
         let mut field = VojaqField::new();
         loop {
             match self.parse_variant() {
-                VariantParsingState::NewVariant(variant) => {
+                Ok(VariantParsingState::NewVariant(variant)) => {
                     field.push(variant);
                 },
-                VariantParsingState::StartNewField(variant) => {
+                Ok(VariantParsingState::StartNewField(variant)) => {
                     field.push(variant);
-                    return FieldParsingState::NewField(field);
+                    return Ok(FieldParsingState::NewField(field));
                 },
-                VariantParsingState::StartNewLine(variant) => {
+                Ok(VariantParsingState::StartNewLine(variant)) => {
                     field.push(variant);
-                    return FieldParsingState::StartNewLine(field);
+                    return Ok(FieldParsingState::StartNewLine(field));
                 },
-                VariantParsingState::Done(variant) => {
+                Ok(VariantParsingState::Done(variant)) => {
                     field.push(variant);
-                    return FieldParsingState::Done(field);
-                }
+                    return Ok(FieldParsingState::Done(field));
+                },
+                Err(e) => return Err(e)
             }
         }
     }
 
-    fn parse_variant(&mut self) -> VariantParsingState {
+    fn parse_variant(&mut self) -> ParsingResult<VariantParsingState> {
         let mut variant = String::new();
         while let Some(c) = self.it.next() {
             match c {
-                '|' => return VariantParsingState::NewVariant(variant),
-                '{' | '}' => return VariantParsingState::StartNewField(variant),
-                '\n' => return VariantParsingState::StartNewLine(variant),
-                '\\' => self.push_escaped(&mut variant),
+                '|' => return Ok(VariantParsingState::NewVariant(variant)),
+                '{' | '}' => return Ok(VariantParsingState::StartNewField(variant)),
+                '\n' => return Ok(VariantParsingState::StartNewLine(variant)),
+                '\\' => self.push_escaped(&mut variant)?,
                 c => variant.push(c)
-            }
+            };
         }
         // if end-of-line is reached
-        VariantParsingState::Done(variant)
+        Ok(VariantParsingState::Done(variant))
     }
 
-    fn push_escaped(&mut self, variant: &mut String) {
+    fn push_escaped(&mut self, variant: &mut String) -> ParsingResult<()> {
         if let Some(c) = self.it.next() {
             match c {
                 '|' | '{' | '}' | '\\' => variant.push(c),
                 't' => variant.push('\t'),
                 'n' => variant.push('\n'),
                 'r' => variant.push('\r'),
-                _ => variant.push_str("ERROR !! TODO !!")
+                c => return Err(ParsingError::BadEscapedSequence(c))
             }
-        }
+        };
+        Ok(())
     }
 }
 
