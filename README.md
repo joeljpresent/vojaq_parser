@@ -4,16 +4,17 @@
 
 ``` vojaq
 ありがとう {arigatou} thank you
-馬鹿 {baka} idiot
-アライグマ {araiguma} raccoon
-サントノーレ {santonôre} Saint-Honoré
+馬鹿 {baka} idiot | stupid
+洗い熊 | アライグマ {araiguma} raccoon {animal}
+サントノーレ {santonôre} Saint-Honoré {pastry | cake} French
 ```
 
 ## Vojaq syntax
 
-Vojaq trios is made up of three strings (or "testos") called "primo", "secondo" and "terzo".
-A vojaq line describes a vojaq trio with the following syntax:
-``` vojaq
-PRIMO {SECONDO} TERZO
-```
-A Vojaq file is made up of Vojaq lines separated by a linefeed.
+A variant is a character string which does not contain unescaped `{`, `}`, `|` or a linefeed.
+
+A field is an array of variants separated by a `|`.
+
+A line is an array of fields in such a way that one in two fields is enclosed between `{` and `}`.
+
+A set is an array of lines separated by a linefeed (LF).

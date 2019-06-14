@@ -1,19 +1,17 @@
-use std::fs::File;
-use std::io::{BufRead, BufReader};
+use std::error::Error;
+use std::fs::read_to_string;
 use std::path::Path;
-use crate::parser::parse_line;
-use crate::trio::VojaqTrio;
-use crate::set::VojaqSet;
 
 /// Extract the content of a Vojaq file into a VojaqSet.
-pub fn read_file<P>(filename: P) -> std::io::Result<VojaqSet>
+pub fn read_file<P>(path: P) -> Result<VojaqSet, Box<dyn Error>>
     where P: AsRef<Path>
 {
-    let file = File::open(filename)?;
-    let trios: Vec<VojaqTrio> = BufReader::new(file).lines()
-        .filter_map(|l| l.ok())
-        .map(|l| parse_line(l.as_str()).unpack_trio())
-        .filter_map(|l| l)
-        .collect();
-    Ok(VojaqSet::with_trios(trios))
+    let content = read_to_string(path)?;
+
+    // Remove the UTF-8 BOM if any.
+    let content = if content.starts_with("\u{FEFF}") {
+        &content[3..]
+    } else {
+        &content[..]
+    }
 }
