@@ -103,11 +103,24 @@ impl<'a> VojaqParser<'a> {
                 '|' => return VariantParsingState::NewVariant(variant),
                 '{' | '}' => return VariantParsingState::StartNewField(variant),
                 '\n' => return VariantParsingState::StartNewLine(variant),
+                '\\' => self.push_escaped(&mut variant),
                 c => variant.push(c)
             }
         }
         // if end-of-line is reached
         VariantParsingState::Done(variant)
+    }
+
+    fn push_escaped(&mut self, variant: &mut String) {
+        if let Some(c) = self.it.next() {
+            match c {
+                '|' | '{' | '}' | '\\' => variant.push(c),
+                't' => variant.push('\t'),
+                'n' => variant.push('\n'),
+                'r' => variant.push('\r'),
+                _ => variant.push_str("ERROR !! TODO !!")
+            }
+        }
     }
 }
 

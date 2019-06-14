@@ -1,2 +1,2 @@
 #[cfg(test)]
-mod trivial;
+mod single_variant;
