@@ -6,7 +6,7 @@ pub struct VojaqField {
 impl VojaqField {
     pub fn new() -> VojaqField {
         VojaqField {
-            variants: vec![String::new()]
+            variants: vec![]
         }
     }
 

@@ -8,7 +8,7 @@ pub struct VojaqLine {
 impl VojaqLine {
     pub fn new() -> VojaqLine {
         VojaqLine {
-            fields: vec![VojaqField::new()]
+            fields: vec![]
         }
     }
 
@@ -22,9 +22,5 @@ impl VojaqLine {
 
     pub fn get(&self, field_index: usize) -> Option<&VojaqField> {
         self.fields.get(field_index)
-    }
-
-    pub fn current_field_number(&self) -> usize {
-        self.fields.len() - 1
     }
 }
