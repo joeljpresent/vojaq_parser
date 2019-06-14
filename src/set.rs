@@ -1,6 +1,6 @@
 use crate::VojaqLine;
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq, Eq)]
 pub struct VojaqSet {
     lines : Vec<VojaqLine>
 }
@@ -17,10 +17,6 @@ impl VojaqSet {
             lines: lines
         }
     }
-
-    //pub fn parse(content: &str) -> Result<VojaqSet, Box<dyn std::error::Error>> {
-    //
-    //}
 
     pub fn lines(&self) -> &[VojaqLine] {
         self.lines.as_slice()

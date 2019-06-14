@@ -1,10 +1,13 @@
 #![allow(dead_code)]
 
+mod field;
 mod file;
-mod structs;
-mod parsing;
-// mod tests;
+mod line;
+mod parser;
+mod set;
+mod tests;
 
-pub use structs::field::VojaqField;
-pub use structs::line::VojaqLine;
-pub use structs::set::VojaqSet;
+pub use parser::parse_vojaq;
+pub use field::VojaqField;
+pub use line::VojaqLine;
+pub use set::VojaqSet;

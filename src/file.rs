@@ -1,7 +1,7 @@
 use std::fs::read_to_string;
 use std::path::Path;
-use crate::parsing::parser::parse_vojaq;
-use crate::structs::set::VojaqSet;
+use crate::parse_vojaq;
+use crate::VojaqSet;
 
 /// Extract the content of a Vojaq file into a VojaqSet.
 pub fn read_file<P>(path: P) -> Result<VojaqSet, Box<dyn std::error::Error>>
