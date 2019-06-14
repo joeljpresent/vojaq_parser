@@ -1,5 +1,14 @@
 use crate::VojaqLine;
 
+/// A Vojaq set is an "array" of Vojaq lines.
+/// 
+/// The text representation of a Vojaq set is a series of lines
+/// seperated by a linefeed character.
+/// 
+/// ``` vojaq
+/// The {first} line
+/// The {second} line
+/// ```
 #[derive(Debug, PartialEq, Eq)]
 pub struct VojaqSet {
     lines : Vec<VojaqLine>

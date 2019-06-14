@@ -4,6 +4,9 @@ use crate::parse_vojaq;
 use crate::VojaqSet;
 
 /// Extract the content of a Vojaq file into a VojaqSet.
+/// 
+/// The Vojaq file must represent a valid Vojaq set and 
+/// be encoded in UTF-8.
 pub fn read_file<P>(path: P) -> Result<VojaqSet, Box<dyn std::error::Error>>
     where P: AsRef<Path>
 {

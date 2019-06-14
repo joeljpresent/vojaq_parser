@@ -1,3 +1,14 @@
+/// A Vojaq field is an "array" of variants.
+/// 
+/// A variant is basically a string which does not contain
+/// delimiters (`{`, `}`, `|`, linefeed…).
+/// 
+/// The text representation of a Vojaq field is a series
+/// of variants (strings) separated by a pipeline character.
+/// 
+/// ``` vojaq
+/// first variant | second variant | third variant 
+/// ```
 #[derive(Debug, PartialEq, Eq)]
 pub struct VojaqField {
     variants: Vec<String>

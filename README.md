@@ -9,6 +9,11 @@
 サントノーレ {santonôre} Saint-Honoré {pastry | cake} French
 ```
 
+## Disclaimer
+
+This crate is very buggy and far from being finished.
+You should not use this crate at the moment.
+
 ## Vojaq syntax
 
 A variant is a character string which does not contain unescaped `{`, `}`, `|` or a linefeed.

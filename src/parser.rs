@@ -27,6 +27,7 @@ struct VojaqParser<'a> {
     it : Peekable<Chars<'a>>
 }
 
+/// Parse a Vojaq text into a Vojaq set.
 pub fn parse_vojaq(text: &str) -> VojaqSet {
     VojaqParser::new(text).parse_text()
 }
