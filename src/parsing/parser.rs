@@ -2,70 +2,111 @@ use crate::{VojaqField, VojaqLine, VojaqSet};
 use std::iter::Peekable;
 use std::str::Chars;
 
-#[derive(PartialEq, Eq)]
-enum ParsingState {
+#[derive(PartialEq, Eq, Debug)]
+enum VariantParsingState {
     StartNewLine(String),
     StartNewField(String),
     NewVariant(String),
     Done(String)
 }
 
+#[derive(PartialEq, Eq, Debug)]
+enum FieldParsingState {
+    StartNewLine(VojaqField),
+    NewField(VojaqField),
+    Done(VojaqField)
+}
+
+#[derive(PartialEq, Eq, Debug)]
+enum LineParsingState {
+    NewLine(VojaqLine),
+    Done(VojaqLine)
+}
+
 struct VojaqParser<'a> {
-    it : Peekable<Chars<'a>>,
-    set: VojaqSet
+    it : Peekable<Chars<'a>>
 }
 
 pub fn parse_vojaq(text: &str) -> VojaqSet {
-    let mut parser = VojaqParser::new(text);
-    parser.parse_text();
-    parser.vojaq_set()
+    VojaqParser::new(text).parse_text()
 }
 
 impl<'a> VojaqParser<'a> {
     pub fn new(text: &'a str) -> VojaqParser<'a> {
         VojaqParser {
-            it : text.chars().peekable(),
-            set: VojaqSet::new()
+            it : text.chars().peekable()
         }
     }
 
-    pub fn parse_text(&mut self) {
-
-    }
-
-    fn parse_line(&mut self) {
-
-    }
-
-    fn parse_field(&mut self) {
-        let mut field = VojaqField::new();
+    pub fn parse_text(&mut self) -> VojaqSet {
+        let mut set = VojaqSet::new();
         loop {
-            match self.parse_variant() {
-                ParsingState::NewVariant(variant) => {
-                    field.push(variant)
-                    // TODO
+            match self.parse_line() {
+                LineParsingState::NewLine(line) => {
+                    set.push(line);
                 },
-                _ => println!("Tiri")
+                LineParsingState::Done(line) => {
+                    set.push(line);
+                    return set;
+                }
             }
         }
     }
 
-    fn parse_variant(&mut self) -> ParsingState {
+    fn parse_line(&mut self) -> LineParsingState {
+        let mut line = VojaqLine::new();
+            loop {
+                match self.parse_field() {
+                    FieldParsingState::NewField(field) => {
+                        line.push(field);
+                    },
+                    FieldParsingState::StartNewLine(field) => {
+                        line.push(field);
+                        return LineParsingState::NewLine(line);
+                    },
+                    FieldParsingState::Done(field) => {
+                        line.push(field);
+                        return LineParsingState::Done(line);
+                    }
+                }
+            }
+    }
+
+    fn parse_field(&mut self) -> FieldParsingState {
+        let mut field = VojaqField::new();
+        loop {
+            match self.parse_variant() {
+                VariantParsingState::NewVariant(variant) => {
+                    field.push(variant);
+                },
+                VariantParsingState::StartNewField(variant) => {
+                    field.push(variant);
+                    return FieldParsingState::NewField(field);
+                },
+                VariantParsingState::StartNewLine(variant) => {
+                    field.push(variant);
+                    return FieldParsingState::StartNewLine(field);
+                },
+                VariantParsingState::Done(variant) => {
+                    field.push(variant);
+                    return FieldParsingState::Done(field);
+                }
+            }
+        }
+    }
+
+    fn parse_variant(&mut self) -> VariantParsingState {
         let mut variant = String::new();
         while let Some(c) = self.it.next() {
             match c {
-                '|' => return ParsingState::NewVariant(variant),
-                '{' | '}' => return ParsingState::StartNewField(variant),
-                '\n' => return ParsingState::StartNewLine(variant),
+                '|' => return VariantParsingState::NewVariant(variant),
+                '{' | '}' => return VariantParsingState::StartNewField(variant),
+                '\n' => return VariantParsingState::StartNewLine(variant),
                 c => variant.push(c)
             }
         }
         // if end-of-line is reached
-        ParsingState::Done(variant)
-    }
-
-    pub fn vojaq_set(self) -> VojaqSet {
-        self.set
+        VariantParsingState::Done(variant)
     }
 }
 

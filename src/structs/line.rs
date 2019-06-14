@@ -16,8 +16,8 @@ impl VojaqLine {
         &self.fields
     }
 
-    pub fn add_field(&mut self) {
-        self.fields.push(VojaqField::new());
+    pub fn push(&mut self, field: VojaqField) {
+        self.fields.push(field);
     }
 
     pub fn get(&self, field_index: usize) -> Option<&VojaqField> {
