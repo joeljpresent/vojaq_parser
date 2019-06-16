@@ -106,6 +106,7 @@ impl<'a> VojaqParser<'a> {
                 '|' => return Ok(VariantParsingState::NewVariant(variant)),
                 '{' | '}' => return Ok(VariantParsingState::StartNewField(variant)),
                 '\n' => return Ok(VariantParsingState::StartNewLine(variant)),
+                '\u{0}' => variant.push('\u{FFFD}'),
                 '\\' => self.push_escaped(&mut variant)?,
                 c => variant.push(c)
             };

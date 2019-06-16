@@ -70,3 +70,8 @@ fn small_comment() {
 fn tricky_comment() {
     assert_good_result(r"Moi\\#toi\#lui\#nous{vous}eux", r"Moi\#toi");
 }
+
+#[test]
+fn nul_character() {
+    assert_good_result("Fl\u{0}r", "Fl\u{FFFD}r")
+}
