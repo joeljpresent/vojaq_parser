@@ -60,3 +60,13 @@ fn bad_escape() {
     let result = parse_vojaq(r"Je n'eût\ypoint l'œil".into());
     assert_eq!(result, Err(ParsingError::BadEscapedSequence('y')));
 }
+
+#[test]
+fn small_comment() {
+    assert_good_result(r"Joël # 1\# number one", "Joël # 1");
+}
+
+#[test]
+fn tricky_comment() {
+    assert_good_result(r"Moi\\#toi\#lui\#nous{vous}eux", r"Moi\#toi");
+}

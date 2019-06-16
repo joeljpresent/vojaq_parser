@@ -121,6 +121,16 @@ impl<'a> VojaqParser<'a> {
                 't' => variant.push('\t'),
                 'n' => variant.push('\n'),
                 'r' => variant.push('\r'),
+                '#' => {
+                    let mut continue_parse_comment = true;
+                    while continue_parse_comment {
+                        continue_parse_comment = if let Some(ch) = self.it.next() {
+                            ch != '\n'
+                        } else {
+                            false
+                        }
+                    }
+                },
                 c => return Err(ParsingError::BadEscapedSequence(c))
             }
         };
