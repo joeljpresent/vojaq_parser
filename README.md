@@ -11,8 +11,8 @@
 
 ## Disclaimer
 
-This crate is very buggy and far from being finished.
-You should not use this crate at the moment.
+This crate is very unstable and far from being finished.
+You probably should not use this crate at the moment.
 
 ## Vojaq syntax
 

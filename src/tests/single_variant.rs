@@ -26,11 +26,6 @@ fn full_phrase() {
 }
 
 #[test]
-fn newline_alone() {
-    assert_good_result(r"\n", "\n");
-}
-
-#[test]
 fn newline_in_phrase() {
     assert_good_result(r"Je n'eût\npoint l'œil", "Je n'eût\npoint l'œil");
 }
@@ -63,7 +58,7 @@ fn bad_escape() {
 
 #[test]
 fn small_comment() {
-    assert_good_result(r"Joël # 1\# number one", "Joël # 1");
+    assert_good_result(r"Joël # 1 \# number one", "Joël # 1");
 }
 
 #[test]
@@ -73,5 +68,10 @@ fn tricky_comment() {
 
 #[test]
 fn nul_character() {
-    assert_good_result("Fl\u{0}r", "Fl\u{FFFD}r")
+    assert_good_result("Fl\u{0}r", "Fl\u{FFFD}r");
+}
+
+#[test]
+fn with_whitespace() {
+    assert_good_result("  \t Toi\t + moi  \t  ", "Toi\t + moi");
 }

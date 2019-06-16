@@ -80,18 +80,18 @@ impl<'a> VojaqParser<'a> {
         loop {
             match self.parse_variant() {
                 Ok(VariantParsingState::NewVariant(variant)) => {
-                    field.push(variant);
+                    field.push_trimmed(variant);
                 },
                 Ok(VariantParsingState::StartNewField(variant)) => {
-                    field.push(variant);
+                    field.push_trimmed(variant);
                     return Ok(FieldParsingState::NewField(field));
                 },
                 Ok(VariantParsingState::StartNewLine(variant)) => {
-                    field.push(variant);
+                    field.push_trimmed(variant);
                     return Ok(FieldParsingState::StartNewLine(field));
                 },
                 Ok(VariantParsingState::Done(variant)) => {
-                    field.push(variant);
+                    field.push_trimmed(variant);
                     return Ok(FieldParsingState::Done(field));
                 },
                 Err(e) => return Err(e)

@@ -29,6 +29,10 @@ impl VojaqField {
         self.variants.push(variant);
     }
 
+    pub fn push_trimmed(&mut self, variant: String) {
+        self.variants.push(variant.trim().into());
+    }
+
     pub fn get(&self, field_number: usize) -> Option<&String> {
         self.variants.get(field_number)
     }
