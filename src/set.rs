@@ -1,4 +1,5 @@
 use crate::VojaqLine;
+use std::fmt;
 
 /// A Vojaq set is an "array" of Vojaq lines.
 /// 
@@ -9,7 +10,7 @@ use crate::VojaqLine;
 /// The {first} line
 /// The {second} line
 /// ```
-#[derive(Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq)]
 pub struct VojaqSet {
     lines : Vec<VojaqLine>
 }
@@ -35,7 +36,23 @@ impl VojaqSet {
         self.lines.push(line);
     }
 
+    pub fn push_if_not_empty(&mut self, line: VojaqLine) {
+        if !line.is_empty() {
+            self.lines.push(line)
+        }
+    }
+
     pub fn get(&self, line_index: usize) -> Option<&VojaqLine> {
         self.lines.get(line_index)
+    }
+
+    pub fn is_empty(&self) -> bool {
+        self.lines().iter().all(|line| line.is_empty())
+    }
+}
+
+impl fmt::Debug for VojaqSet {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        self.lines.fmt(f)
     }
 }

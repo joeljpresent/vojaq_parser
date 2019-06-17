@@ -44,10 +44,10 @@ impl<'a> VojaqParser<'a> {
         loop {
             match self.parse_line() {
                 Ok(LineParsingState::NewLine(line)) => {
-                    set.push(line);
+                    set.push_if_not_empty(line);
                 },
                 Ok(LineParsingState::Done(line)) => {
-                    set.push(line);
+                    set.push_if_not_empty(line);
                     return Ok(set);
                 },
                 Err(e) => return Err(e)
@@ -60,14 +60,14 @@ impl<'a> VojaqParser<'a> {
             loop {
                 match self.parse_field() {
                     Ok(FieldParsingState::NewField(field)) => {
-                        line.push(field);
+                        line.push_if_not_empty(field);
                     },
                     Ok(FieldParsingState::StartNewLine(field)) => {
-                        line.push(field);
+                        line.push_if_not_empty(field);
                         return Ok(LineParsingState::NewLine(line));
                     },
                     Ok(FieldParsingState::Done(field)) => {
-                        line.push(field);
+                        line.push_if_not_empty(field);
                         return Ok(LineParsingState::Done(line));
                     },
                     Err(e) => return Err(e)
