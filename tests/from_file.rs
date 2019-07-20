@@ -1,4 +1,4 @@
-use crate::{read_file, VojaqSet};
+use vojaq_parser::{read_file, VojaqSet};
 
 fn read_from_file() {
     let s = read_file("vojaq_files/new.vojaq");

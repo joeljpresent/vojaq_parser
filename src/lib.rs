@@ -32,7 +32,6 @@ mod file;
 mod line;
 mod parser;
 mod set;
-mod tests;
 
 pub use error::{ParsingError, ParsingResult};
 pub use file::read_file;

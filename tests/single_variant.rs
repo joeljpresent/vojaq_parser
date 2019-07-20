@@ -1,4 +1,4 @@
-use crate::{parse_vojaq, ParsingError, VojaqField, VojaqLine, VojaqSet};
+use vojaq_parser::{parse_vojaq, ParsingError, VojaqField, VojaqLine, VojaqSet};
 
 fn set_of_one_variant(variant: &str) -> VojaqSet {
     let mut field = VojaqField::new();
