@@ -6,3 +6,6 @@ mod single_variant;
 
 #[cfg(test)]
 mod single_field;
+
+#[cfg(test)]
+mod single_line;
