@@ -41,5 +41,5 @@ fn fields_with_comment() {
 
 #[test]
 fn one_empty_field() {
-    assert_good_result("{t'aime | <3} pas", vec![&[], &["t'aime", "<3"], &["pas"]])
+    assert_good_result("{t'aime | <3} pas", vec![&["t'aime", "<3"], &["pas"]])
 }
